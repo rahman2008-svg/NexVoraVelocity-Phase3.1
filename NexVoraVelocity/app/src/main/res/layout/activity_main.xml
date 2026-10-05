@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <android.opengl.GLSurfaceView
+        android:id="@+id/gl_surface_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Main Menu -->
+    <LinearLayout
+        android:id="@+id/panel_main_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#CC0A0E18"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NEXVORA VELOCITY"
+            android:textColor="#00E5FF"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ARCADE RACING"
+            android:textColor="#80FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginBottom="32dp" />
+
+        <Button android:id="@+id/btn_race" android:layout_width="220dp" android:layout_height="wrap_content"
+            android:text="RACE" android:layout_margin="6dp" />
+        <Button android:id="@+id/btn_cars" android:layout_width="220dp" android:layout_height="wrap_content"
+            android:text="CARS" android:layout_margin="6dp" />
+        <Button android:id="@+id/btn_settings" android:layout_width="220dp" android:layout_height="wrap_content"
+            android:text="SETTINGS" android:layout_margin="6dp" />
+        <Button android:id="@+id/btn_exit" android:layout_width="220dp" android:layout_height="wrap_content"
+            android:text="EXIT" android:layout_margin="6dp" />
+    </LinearLayout>
+
+    <!-- Car Selection -->
+    <LinearLayout
+        android:id="@+id/panel_cars"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#CC0A0E18"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="SELECT CAR" android:textColor="#00E5FF" android:textSize="24sp"
+            android:textStyle="bold" android:layout_marginBottom="16dp" />
+
+        <Button android:id="@+id/btn_car_vx" android:layout_width="260dp" android:layout_height="wrap_content"
+            android:text="Velocity X  |  Speed ★★★★  Accel ★★★" android:layout_margin="4dp" />
+        <Button android:id="@+id/btn_car_nova" android:layout_width="260dp" android:layout_height="wrap_content"
+            android:text="Nova GT  |  Handling ★★★★★  Accel ★★★★" android:layout_margin="4dp" />
+        <Button android:id="@+id/btn_car_cyber" android:layout_width="260dp" android:layout_height="wrap_content"
+            android:text="Cyber R  |  Top Speed ★★★★★  Nitro ★★★★" android:layout_margin="4dp" />
+
+        <TextView android:id="@+id/txt_selected_car" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Selected: Velocity X"
+            android:textColor="#FFFFFF" android:layout_marginTop="12dp" />
+
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="16dp">
+            <Button android:id="@+id/btn_cars_back" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="BACK" android:layout_margin="4dp" />
+            <Button android:id="@+id/btn_cars_race" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="RACE" android:layout_margin="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Settings -->
+    <LinearLayout
+        android:id="@+id/panel_settings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#CC0A0E18"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="SETTINGS" android:textColor="#00E5FF" android:textSize="24sp"
+            android:textStyle="bold" android:layout_marginBottom="12dp" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Difficulty" android:textColor="#FFFFFF" />
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btn_diff_easy" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="EASY" android:layout_margin="2dp" />
+            <Button android:id="@+id/btn_diff_normal" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="NORMAL" android:layout_margin="2dp" />
+            <Button android:id="@+id/btn_diff_hard" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="HARD" android:layout_margin="2dp" />
+        </LinearLayout>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Graphics" android:textColor="#FFFFFF" android:layout_marginTop="8dp" />
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btn_gfx_low" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="LOW" android:layout_margin="2dp" />
+            <Button android:id="@+id/btn_gfx_med" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="MED" android:layout_margin="2dp" />
+            <Button android:id="@+id/btn_gfx_high" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="HIGH" android:layout_margin="2dp" />
+        </LinearLayout>
+
+        <Button android:id="@+id/btn_settings_back" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="BACK" android:layout_marginTop="16dp" />
+    </LinearLayout>
+
+    <!-- HUD -->
+    <LinearLayout
+        android:id="@+id/panel_hud"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:visibility="gone">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView android:id="@+id/txt_speed" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="0 km/h" android:textColor="#FFFFFF"
+                android:textSize="22sp" android:textStyle="bold" />
+            <TextView android:id="@+id/txt_position" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="1st" android:textColor="#FFD600"
+                android:textSize="22sp" android:textStyle="bold" android:layout_marginEnd="16dp" />
+            <TextView android:id="@+id/txt_lap" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Lap 1/3" android:textColor="#FFFFFF"
+                android:textSize="18sp" android:layout_marginEnd="16dp" />
+            <TextView android:id="@+id/txt_time" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="0:00.00" android:textColor="#80CBC4"
+                android:textSize="18sp" />
+            <Button android:id="@+id/btn_pause" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="II" android:layout_marginStart="12dp" />
+        </LinearLayout>
+
+        <TextView android:id="@+id/txt_nitro" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="NITRO ████████"
+            android:textColor="#00E5FF" android:textSize="14sp" android:layout_marginTop="4dp" />
+
+        <TextView android:id="@+id/txt_countdown" android:layout_width="match_parent"
+            android:layout_height="match_parent" android:gravity="center"
+            android:text="" android:textColor="#FFFFFF" android:textSize="72sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Pause -->
+    <LinearLayout
+        android:id="@+id/panel_pause"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#AA000000"
+        android:visibility="gone">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="PAUSED" android:textColor="#FFFFFF" android:textSize="28sp"
+            android:textStyle="bold" android:layout_marginBottom="16dp" />
+        <Button android:id="@+id/btn_resume" android:layout_width="200dp" android:layout_height="wrap_content"
+            android:text="RESUME" android:layout_margin="4dp" />
+        <Button android:id="@+id/btn_restart" android:layout_width="200dp" android:layout_height="wrap_content"
+            android:text="RESTART" android:layout_margin="4dp" />
+        <Button android:id="@+id/btn_pause_menu" android:layout_width="200dp" android:layout_height="wrap_content"
+            android:text="MAIN MENU" android:layout_margin="4dp" />
+    </LinearLayout>
+
+    <!-- Results -->
+    <LinearLayout
+        android:id="@+id/panel_results"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#CC0A0E18"
+        android:visibility="gone">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="RACE RESULTS" android:textColor="#00E5FF" android:textSize="28sp"
+            android:textStyle="bold" android:layout_marginBottom="12dp" />
+        <TextView android:id="@+id/txt_result_pos" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Position: 1st"
+            android:textColor="#FFD600" android:textSize="22sp" />
+        <TextView android:id="@+id/txt_result_time" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Time: 0:00.00"
+            android:textColor="#FFFFFF" android:textSize="18sp" android:layout_marginTop="4dp" />
+        <TextView android:id="@+id/txt_result_lap" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Best Lap: --"
+            android:textColor="#80CBC4" android:textSize="16sp" android:layout_marginTop="4dp" />
+
+        <Button android:id="@+id/btn_result_again" android:layout_width="220dp"
+            android:layout_height="wrap_content" android:text="RACE AGAIN" android:layout_marginTop="20dp" />
+        <Button android:id="@+id/btn_result_cars" android:layout_width="220dp"
+            android:layout_height="wrap_content" android:text="CAR SELECT" android:layout_margin="4dp" />
+        <Button android:id="@+id/btn_result_menu" android:layout_width="220dp"
+            android:layout_height="wrap_content" android:text="MAIN MENU" android:layout_margin="4dp" />
+    </LinearLayout>
+
+    <!-- Touch control hints -->
+    <TextView android:id="@+id/txt_controls_hint"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="  STEER ← left side    ACCEL / BRAKE / NITRO → right side"
+        android:textColor="#80FFFFFF" android:textSize="11sp"
+        android:padding="8dp" android:visibility="gone" />
+
+</FrameLayout>
