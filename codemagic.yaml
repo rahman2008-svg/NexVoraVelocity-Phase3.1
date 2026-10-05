@@ -3,35 +3,25 @@ workflows:
     name: NexVora Velocity Android
     max_build_duration: 60
     instance_type: mac_mini_m1
+
     environment:
       java: 17
       vars:
         PACKAGE_NAME: "com.nexvora.velocity"
-      android_signing: # optional – configure in Codemagic UI for release
-        - keystore_reference
+
     scripts:
       - name: Set Android SDK location
         script: |
           echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
-      - name: Make gradlew executable
+
+      - name: Verify Gradle Wrapper
         script: |
           chmod +x ./gradlew
-      - name: Build debug APK
+          ./gradlew --version
+
+      - name: Build Debug APK
         script: |
-          ./gradlew :app:assembleDebug
-      - name: Build release APK (unsigned / configure signing for production)
-        script: |
-          ./gradlew :app:assembleRelease || true
-      - name: Build release AAB (requires signing config)
-        script: |
-          ./gradlew :app:bundleRelease || true
+          ./gradlew :app:assembleDebug --stacktrace
+
     artifacts:
-      - app/build/outputs/**/*.apk
-      - app/build/outputs/**/*.aab
-    publishing:
-      email:
-        recipients:
-          - team@nexvora.example
-        notify:
-          success: true
-          failure: true
+      - app/build/outputs/apk/debug/*.apk
